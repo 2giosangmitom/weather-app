@@ -1,5 +1,5 @@
 "use client";
-import { LocationContext } from "@/app/page";
+import { LocationContext } from "@/app/LocationContext";
 import { openWeatherRes } from "@/types";
 import { useContext, useEffect, useState } from "react";
 import { ImSpinner8 } from "react-icons/im";
@@ -33,6 +33,7 @@ export default function WeatherCard() {
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
+        // if (data.cod === "404") return;
         setData(data);
         setLoading(false);
       });
@@ -42,6 +43,13 @@ export default function WeatherCard() {
     return (
       <div className="w-full max-w-md bg-black/20 min-h-[550px] text-white backdrop-blur-sm rounded-lg py-12 px-6 mb-2 flex items-center justify-center">
         <ImSpinner8 className="text-5xl animate-spin" />
+      </div>
+    );
+  }
+  if (data.cod === "404") {
+    return (
+      <div className="w-full max-w-md bg-black/20 min-h-[550px] text-white backdrop-blur-sm rounded-lg py-12 px-6 mb-2 flex items-center justify-center">
+        <p className="text-4xl font-bold ml-3">An error occurred :((</p>
       </div>
     );
   }

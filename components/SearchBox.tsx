@@ -1,5 +1,5 @@
 "use client";
-import { LocationContext } from "@/app/page";
+import { LocationContext } from "@/app/LocationContext";
 import { FormEvent, useContext, useRef, useState } from "react";
 import { GrSearch } from "react-icons/gr";
 

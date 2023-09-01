@@ -1,13 +1,8 @@
 "use client";
 import SearchBox from "@/components/SearchBox";
 import WeatherCard from "@/components/WeatherCard";
-import { useState, createContext } from "react";
-import { locationContext } from "@/types";
-
-export const LocationContext = createContext<locationContext>({
-  location: "",
-  setLocation: () => {},
-});
+import { useState } from "react";
+import { LocationContext } from "./LocationContext";
 
 export default function App() {
   const [location, setLocation] = useState<string>("hue");

@@ -5,7 +5,7 @@ export interface openWeatherRes {
   clouds: {
     all: number;
   };
-  cod: number;
+  cod: number | string;
   coord: {
     lat: number;
     lon: number;
