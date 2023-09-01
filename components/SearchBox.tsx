@@ -1,15 +1,18 @@
 "use client";
-import { FormEvent, useRef, useState } from "react";
+import { LocationContext } from "@/app/page";
+import { FormEvent, useContext, useRef, useState } from "react";
 import { GrSearch } from "react-icons/gr";
 
 export default function SearchBox() {
-  const [location, setLocation] = useState<string>("");
+  const [input, setInput] = useState<string>("");
+  const { setLocation } = useContext(LocationContext);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLocation("");
+    setLocation(input);
     inputRef.current?.blur();
+    setInput("");
   };
 
   return (
@@ -20,9 +23,9 @@ export default function SearchBox() {
       <div className="h-full relative flex items-center justify-between p-2">
         <input
           type="text"
-          value={location}
+          value={input}
           ref={inputRef}
-          onChange={(e) => setLocation(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
           placeholder="Search by city or country"
           className="flex-1 bg-transparent outline-none placeholder:text-white text-white text-base font-light pl-6 h-full"
         />
