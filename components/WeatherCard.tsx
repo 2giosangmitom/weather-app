@@ -33,7 +33,6 @@ export default function WeatherCard() {
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
-        // if (data.cod === "404") return;
         setData(data);
         setLoading(false);
       });

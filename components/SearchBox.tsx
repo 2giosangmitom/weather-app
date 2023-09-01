@@ -6,18 +6,28 @@ import { GrSearch } from "react-icons/gr";
 export default function SearchBox() {
   const [input, setInput] = useState<string>("");
   const { setLocation } = useContext(LocationContext);
+  const [animate, setAnimate] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLocation(input);
+    if (input !== "") {
+      setLocation(input);
+    } else {
+      setAnimate(true);
+      setTimeout(() => {
+        setAnimate(false);
+      }, 500);
+    }
     inputRef.current?.blur();
     setInput("");
   };
 
   return (
     <form
-      className="h-16 bg-black/30 w-full max-w-md rounded-full backdrop-blur-sm mb-8 mt-3"
+      className={`${
+        animate ? "animate-shake" : "animate-none"
+      } mt-2 h-16 bg-black/30 w-full max-w-md rounded-full backdrop-blur-sm mb-8`}
       onSubmit={(e) => handleSubmit(e)}
     >
       <div className="h-full relative flex items-center justify-between p-2">
