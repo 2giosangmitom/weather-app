@@ -2,7 +2,7 @@
 import { FormEvent, useRef, useState } from "react";
 import { GrSearch } from "react-icons/gr";
 
-export default function Search() {
+export default function SearchBox() {
   const [location, setLocation] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
 
