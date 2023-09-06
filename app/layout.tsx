@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Weather App",
-  description: "Weather app using openweather api and Next.js 13 new App Router features",
+  description:
+    "Weather app using openweather api and Next.js 13 new App Router features",
 };
 
 export default function RootLayout({

@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
-
 export interface openWeatherRes {
   base: string;
   clouds: {
@@ -42,9 +40,4 @@ export interface openWeatherRes {
     deg: number;
     speed: number;
   };
-}
-
-export interface locationContext {
-  location: string;
-  setLocation: Dispatch<SetStateAction<string>>;
 }

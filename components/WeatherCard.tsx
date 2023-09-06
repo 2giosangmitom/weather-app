@@ -1,7 +1,6 @@
 "use client";
-import { LocationContext } from "@/app/LocationContext";
 import { openWeatherRes } from "@/types";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ImSpinner8 } from "react-icons/im";
 import {
   IoMdSunny,
@@ -19,9 +18,10 @@ import {
   BsWind,
 } from "react-icons/bs";
 import { TbTemperatureCelsius } from "react-icons/tb";
+import { useLocationContext } from "@/context/LocationContext";
 
 export default function WeatherCard() {
-  const { location } = useContext(LocationContext);
+  const { location } = useLocationContext();
   const [data, setData] = useState<openWeatherRes>();
   const [loading, setLoading] = useState<boolean>(false);
   const date = new Date();

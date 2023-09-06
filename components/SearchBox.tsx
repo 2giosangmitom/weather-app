@@ -1,13 +1,13 @@
 "use client";
-import { LocationContext } from "@/app/LocationContext";
-import { FormEvent, useContext, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { GrSearch } from "react-icons/gr";
+import { useLocationContext } from "@/context/LocationContext";
 
 export default function SearchBox() {
   const [input, setInput] = useState<string>("");
-  const { setLocation } = useContext(LocationContext);
   const [animate, setAnimate] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { setLocation } = useLocationContext();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
